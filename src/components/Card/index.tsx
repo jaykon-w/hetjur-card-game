@@ -61,7 +61,7 @@ export const Card: React.FC<
         ) : (
           <>
             <section className="image">
-              <img src={`/${image}`} />
+              <img src={image} />
             </section>
             <aside className="attributes">
               <AttributeContainer color="green">

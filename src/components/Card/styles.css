@@ -103,7 +103,8 @@
         position: absolute;
         top: 55%;
         margin-left: 2px;
-        width: 60%;
+        min-width: 60%;
+        max-width: 90%;
         background: #5a3164;
         border: solid 1.3px #e18af7;
         color: #e18af7;
