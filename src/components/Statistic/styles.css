@@ -1,0 +1,29 @@
+.statistic {
+    display: flex;
+    align-items: flex-start;
+
+    &.direction-column {
+        flex-direction: column;
+        &.align-end {
+            flex-direction: column-reverse;
+        }  
+    }
+    
+    &.direction-row {
+        flex-direction: row;    
+        &.align-end {
+            flex-direction: row-reverse;
+        } 
+    }
+
+    .statistic-title {
+        font-size: 7px;
+        padding: 0 4px;
+    }
+
+    .progression {
+        display: flex;
+        gap: 1px;
+        padding: 0 4px;
+    }
+}

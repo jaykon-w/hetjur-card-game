@@ -1,0 +1,117 @@
+.card-wrapper {
+    scale: 1;
+    transition: all 0.2s cubic-bezier(0.19, 0.58, 0.77, 1);
+    
+    &.zoom {
+        scale: 2;
+        z-index: 2;
+
+        .card {
+            box-shadow: #bcc97e 0px 3px 10px;
+        }
+    }
+
+    .tools {
+        position: absolute;
+        top: -21px;
+        width: var(--card-size-width);
+    }
+}
+
+.card {
+
+    width: var(--card-size-width);
+    height: var(--card-size-height);
+    background: #25181e;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    scale: 1;
+    border: solid 1.3px#fefefe;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+
+    .back-card {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+    }
+    
+    .image {
+        background: #25181e;
+        border: solid 1.3px#fefefe;
+        border-radius: 8px;
+        flex: 2;
+        overflow: hidden;
+        
+        & img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .attributes {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .health {
+        position: absolute;
+        right: 6px;
+    }
+
+    .description {
+        border: solid 1.3px #fefefe;
+        border-radius: 8px;
+        flex: 1;
+        font-size: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .quote {
+        font-size: 6px;
+        font-style: italic;
+        width: 100%;
+        margin: 6px;
+        border-left: solid 1.5px rgba(255, 255, 255, 0.7);
+        padding-left: 4px;
+        padding-right: 8px;
+    }
+
+    .rewards {
+        background: purple;
+        border-top: solid 1.3px #fefefe;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: -6px;
+        margin-top: 0px;
+        padding: 0 10px;
+        height: 16px;
+    }
+
+    .name {
+        position: absolute;
+        top: 55%;
+        margin-left: 2px;
+        width: 60%;
+        background: #5a3164;
+        border: solid 1.3px #e18af7;
+        color: #e18af7;
+        border-radius: 4px;
+        font-size: xx-small;
+        align-items: baseline;
+        justify-content: flex-start;
+        display: flex;
+        padding: 0 8px;
+    }
+}

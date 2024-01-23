@@ -1,0 +1,30 @@
+.level {
+            
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: brown;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 1.1px;
+    font-size: 6px;
+
+    &.level-1 {
+        border-color: #56a2e8;
+        background: #154163;
+    }
+    &.level-2 {
+        border-color: #3a994c;
+        background: #043b0c;
+    }
+    &.level-3 {
+        border-color: #9d5700;
+        background: #362500;
+    }
+    &.level-4 {
+        border-color: #ba5757;
+        background: #5b2c2c;
+    }
+}

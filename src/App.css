@@ -1,0 +1,18 @@
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.table-deck {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 400px;
+  padding: 150px 100px 150px 100px;
+}
+
+.table-battlefield {
+  padding: 30px 100px 150px 100px;
+}

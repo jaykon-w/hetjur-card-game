@@ -1,0 +1,19 @@
+.cemetery {
+    .card-place {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 24px;
+        width: calc(var(--card-size-width) + 32px*2);
+        height: calc(var(--card-size-height) + 32px*2);
+    }
+    
+    .card-place-title {
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
+        font-weight: 800;
+        letter-spacing: 2px;
+    }
+}

@@ -1,0 +1,9 @@
+.card-effect-description {
+    &.effect {
+        scale: 0.9;
+    }
+
+    .effect-title {
+        color: #57a2e7;
+    }
+}
