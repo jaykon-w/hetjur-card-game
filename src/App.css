@@ -7,7 +7,7 @@
 }
 
 .table-wrapper {
-  background-image: url('board.jpg');
+  background-image: url('/board.jpg');
   background-size: calc(100vh * var(--board-aspect-ratio)) 100vh;
   background-repeat: no-repeat;
   background-position: 50%;
