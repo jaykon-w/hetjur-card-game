@@ -5,13 +5,14 @@
     &.zoom {
         scale: 2;
         z-index: 2;
+        transform: translate(0, 100px);
 
         .card {
             box-shadow: #bcc97e 0px 3px 10px;
         }
     }
 
-    .tools {
+    &>.tools {
         position: absolute;
         top: -21px;
         width: var(--card-size-width);
@@ -33,7 +34,15 @@
     overflow: hidden;
     position: relative;
 
-    .back-card {
+    &.enemy {
+        background: #25181e;
+    }
+
+    &.hero {
+        background: #b4c196;
+    }
+
+    &>.back-card {
         height: 100%;
         display: flex;
         justify-content: center;
@@ -41,11 +50,11 @@
         font-size: 3rem;
     }
     
-    .image {
+    &>.image {
         background: #25181e;
         border: solid 1.3px#fefefe;
         border-radius: 8px;
-        flex: 2;
+        height: 59%;
         overflow: hidden;
         
         & img {
@@ -55,19 +64,20 @@
         }
     }
 
-    .attributes {
+    &>.attributes {
         position: absolute;
         display: flex;
         flex-direction: column;
         gap: 6px;
     }
 
-    .health {
+    &>.health {
         position: absolute;
         right: 6px;
     }
 
-    .description {
+    &>.description {
+        background: rgba(37, 24, 30, 0.6);
         border: solid 1.3px #fefefe;
         border-radius: 8px;
         flex: 1;
@@ -75,19 +85,19 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        &>.quote {
+            font-size: 6px;
+            font-style: italic;
+            width: 100%;
+            margin: 6px;
+            border-left: solid 1.5px rgba(255, 255, 255, 0.7);
+            padding-left: 4px;
+            padding-right: 8px;
+        }
     }
 
-    .quote {
-        font-size: 6px;
-        font-style: italic;
-        width: 100%;
-        margin: 6px;
-        border-left: solid 1.5px rgba(255, 255, 255, 0.7);
-        padding-left: 4px;
-        padding-right: 8px;
-    }
-
-    .rewards {
+    &>.rewards {
         background: purple;
         border-top: solid 1.3px #fefefe;
         display: flex;
@@ -99,7 +109,13 @@
         height: 16px;
     }
 
-    .name {
+    &.hero {
+        &>.rewards {
+            display: none;
+        }
+    }
+
+    &>.name {
         position: absolute;
         top: 55%;
         margin-left: 2px;

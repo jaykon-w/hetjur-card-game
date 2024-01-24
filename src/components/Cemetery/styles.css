@@ -5,8 +5,8 @@
         align-items: center;
         background-color: rgba(0, 0, 0, 0.5);
         border-radius: 24px;
-        width: calc(var(--card-size-width) + 32px*2);
-        height: calc(var(--card-size-height) + 32px*2);
+        width: calc(var(--card-size-width) + 24px*2);
+        height: calc(var(--card-size-height) + 24px*2);
     }
     
     .card-place-title {

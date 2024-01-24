@@ -12,5 +12,10 @@
         background: rgba(73, 59, 114, 0.75);
         border: solid 1.3px #b594ff;
     }
+    
+    &.color-blue {
+        background: rgb(21, 65, 99, 0.75);
+        border: solid 1.3px #56a2e8;
+    }
 
 }

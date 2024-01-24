@@ -9,6 +9,7 @@ import "./styles.css";
 
 export interface CardProps {
   id: `${string}-${string}-${string}-${string}-${string}`;
+  type: "hero" | "enemy" | "invite" | "item";
   name: string;
   statistics: {
     atk: [number, number, number, number];
@@ -28,10 +29,16 @@ export interface CardProps {
   citation: string;
 }
 
-export const Card: React.FC<
-  CardProps & { back?: boolean; tools?: ReactNode; count?: number }
-> = ({
+export interface CardAspects {
+  back?: boolean;
+  tools?: ReactNode;
+  count?: number;
+  zoomed?: boolean;
+}
+
+export const Card: React.FC<CardProps & CardAspects> = ({
   id,
+  type,
   name,
   statistics,
   rewards,
@@ -41,11 +48,12 @@ export const Card: React.FC<
   back,
   tools,
   count,
+  zoomed,
 }) => {
   const activeZoom = useDeck((state) => state.activeZoom);
   const setActiveZoom = useDeck((state) => state.setActiveZoom);
 
-  const isZoomAtive = activeZoom === id;
+  const isZoomAtive = zoomed || activeZoom === id;
 
   const clickHadler = useCallback(() => {
     if (isZoomAtive) return setActiveZoom(null);
@@ -55,7 +63,7 @@ export const Card: React.FC<
   return (
     <div className={`card-wrapper ${isZoomAtive && !back ? "zoom" : ""}`}>
       {isZoomAtive ? <div className="tools">{tools}</div> : null}
-      <div className={`card`} onClick={clickHadler}>
+      <div className={`card ${type}`} onClick={clickHadler}>
         {back ? (
           <section className="back-card">{count}</section>
         ) : (
@@ -70,9 +78,18 @@ export const Card: React.FC<
               <AttributeContainer color="green">
                 <Statistic text="DEF" progression={statistics.def}></Statistic>
               </AttributeContainer>
-              <AttributeContainer color="green">
-                <Statistic text="SPD" progression={statistics.spd}></Statistic>
-              </AttributeContainer>
+              {type === "hero" ? (
+                <AttributeContainer color="blue">
+                  <Statistic text="AP" progression={statistics.spd}></Statistic>
+                </AttributeContainer>
+              ) : (
+                <AttributeContainer color="green">
+                  <Statistic
+                    text="SPD"
+                    progression={statistics.spd}
+                  ></Statistic>
+                </AttributeContainer>
+              )}
             </aside>
             <aside className="health">
               <AttributeContainer color="purple">

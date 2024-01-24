@@ -2,9 +2,36 @@ import { CardProps } from "./components/Card";
 
 export type CardDataType = CardProps[];
 
+export const hero: CardProps = {
+  id: crypto.randomUUID(),
+  type: "hero",
+  name: "Adira Puro Sol",
+  statistics: {
+    atk: [1, 1, 1, 2],
+    def: [1, 1, 2, 2],
+    spd: [3, 3, 4, 6],
+    hp: [2, 3, 3, 4],
+  },
+  rewards: {
+    gold: [1, 1, 2, 2],
+    xp: [1, 1, 1, 2],
+  },
+  image: "maga.jpg",
+  effects: [
+    {
+      title: "Convocar a Tropa",
+      description:
+        "#name tem a habilidade de invocar mais #l1[1] #l3[2] goblins por turno",
+    },
+  ],
+  citation:
+    "Malditos humanos, malditos orcs, malditos gigantes malditos goblins",
+};
+
 export const data: CardDataType = [
   {
     id: crypto.randomUUID(),
+    type: "enemy",
     name: "Malditos Goblins",
     statistics: {
       atk: [1, 1, 1, 2],
@@ -16,7 +43,7 @@ export const data: CardDataType = [
       gold: [1, 1, 2, 2],
       xp: [1, 1, 1, 2],
     },
-    image: "malditos-goblins.png",
+    image: "malditos-goblins.jpg",
     effects: [
       {
         title: "Convocar a Tropa",
@@ -29,6 +56,7 @@ export const data: CardDataType = [
   },
   {
     id: crypto.randomUUID(),
+    type: "enemy",
     name: "Gigante Ninja",
     statistics: {
       atk: [2, 2, 3, 4],
@@ -40,7 +68,7 @@ export const data: CardDataType = [
       gold: [2, 5, 7, 9],
       xp: [1, 2, 2, 3],
     },
-    image: "gigante-ninja.png",
+    image: "gigante-ninja.jpg",
     effects: [
       {
         title: "Veloz",
@@ -58,6 +86,7 @@ export const data: CardDataType = [
   },
   {
     id: crypto.randomUUID(),
+    type: "enemy",
     name: "Kobold Sentinela",
     statistics: {
       atk: [1, 1, 2, 2],
@@ -69,7 +98,7 @@ export const data: CardDataType = [
       gold: [1, 1, 1, 2],
       xp: [1, 1, 2, 2],
     },
-    image: "kobold-sentinela.png",
+    image: "kobold-sentinela.jpg",
     effects: [
       {
         title: "Veloz",
@@ -86,6 +115,7 @@ export const data: CardDataType = [
   },
   {
     id: crypto.randomUUID(),
+    type: "enemy",
     name: "Gigante Estrategista",
     statistics: {
       atk: [4, 4, 5, 5],
@@ -97,7 +127,7 @@ export const data: CardDataType = [
       gold: [10, 14, 18, 22],
       xp: [1, 2, 2, 3],
     },
-    image: "gigante-estrategista.png",
+    image: "gigante-estrategista.jpg",
     effects: [
       {
         description:
@@ -110,6 +140,7 @@ export const data: CardDataType = [
 
   {
     id: crypto.randomUUID(),
+    type: "enemy",
     name: "Recruta Meio Orc",
     statistics: {
       atk: [2, 2, 3, 3],
@@ -133,6 +164,7 @@ export const data: CardDataType = [
 
   {
     id: crypto.randomUUID(),
+    type: "enemy",
     name: "Meio Orc Guerreiro",
     statistics: {
       atk: [3, 3, 4, 4],
@@ -155,6 +187,7 @@ export const data: CardDataType = [
   },
   {
     id: crypto.randomUUID(),
+    type: "enemy",
     name: "Organ Batoph, Patriarca da Ninhada",
     statistics: {
       atk: [4, 5, 6, 6],
@@ -178,6 +211,7 @@ export const data: CardDataType = [
   },
   {
     id: crypto.randomUUID(),
+    type: "enemy",
     name: "Ogro Mago",
     statistics: {
       atk: [4, 4, 5, 3],
@@ -202,6 +236,7 @@ export const data: CardDataType = [
 
   {
     id: crypto.randomUUID(),
+    type: "enemy",
     name: "Gigante Sábio",
     statistics: {
       atk: [0, 0, 0, 0],
@@ -223,37 +258,39 @@ export const data: CardDataType = [
     ],
     citation: "Pensa bem, se você vier conosco, nós temos bolo!!!",
   },
-  // {
-  //   id: crypto.randomUUID(),
-  //   name: "Tal Orc",
-  //   statistics: {
-  //     atk: [2, 2, 3, 5],
-  //     def: [1, 1, 2, 2],
-  //     spd: [8, 9, 10, 11],
-  //     hp: [6, 7, 7, 9],
-  //   },
-  //   rewards: {
-  //     gold: [2, 5, 7, 9],
-  //     xp: [1, 2, 2, 3],
-  //   },
-  //   image: "gigante-ninja.png",
-  //   effects: [
-  //     {
-  //       title: "Veloz",
-  //       description:
-  //         "No primeiro turno do combate #name ganha #l1[2] #l3[4] em SPD",
-  //     },
-  //     {
-  //       title: "Ninjutsu",
-  //       description:
-  //         "Se sobreviver 2 rodadas, #name rouba um item do herói e volta para o baralho",
-  //     },
-  //   ],
-  //   citation:
-  //     "Eu sou a sombra, eu sou a escuridão, eu sou invisível, um mestre na arte da ofuscação",
-  // },
   {
     id: crypto.randomUUID(),
+    type: "enemy",
+    name: "Tal Orc",
+    statistics: {
+      atk: [2, 2, 3, 5],
+      def: [1, 1, 2, 2],
+      spd: [8, 9, 10, 11],
+      hp: [6, 7, 7, 9],
+    },
+    rewards: {
+      gold: [2, 5, 7, 9],
+      xp: [1, 2, 2, 3],
+    },
+    image: "gigante-ninja.jpg",
+    effects: [
+      {
+        title: "Veloz",
+        description:
+          "No primeiro turno do combate #name ganha #l1[2] #l3[4] em SPD",
+      },
+      {
+        title: "Ninjutsu",
+        description:
+          "Se sobreviver 2 rodadas, #name rouba um item do herói e volta para o baralho",
+      },
+    ],
+    citation:
+      "Eu sou a sombra, eu sou a escuridão, eu sou invisível, um mestre na arte da ofuscação",
+  },
+  {
+    id: crypto.randomUUID(),
+    type: "enemy",
     name: "Kobold Sentinela",
     statistics: {
       atk: [1, 1, 2, 2],
@@ -265,7 +302,7 @@ export const data: CardDataType = [
       gold: [1, 1, 1, 2],
       xp: [1, 1, 2, 2],
     },
-    image: "kobold-sentinela.png",
+    image: "kobold-sentinela.jpg",
     effects: [
       {
         title: "Veloz",
@@ -282,6 +319,7 @@ export const data: CardDataType = [
   },
   {
     id: crypto.randomUUID(),
+    type: "enemy",
     name: "Gigante Estrategista",
     statistics: {
       atk: [4, 4, 5, 5],
@@ -293,7 +331,7 @@ export const data: CardDataType = [
       gold: [10, 14, 18, 22],
       xp: [1, 2, 2, 3],
     },
-    image: "gigante-estrategista.png",
+    image: "gigante-estrategista.jpg",
     effects: [
       {
         description:

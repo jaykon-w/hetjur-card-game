@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import "./styles.css";
 
 interface AttributeContainerProps {
-  color: "green" | "purple";
+  color: "green" | "purple" | "blue";
   children: ReactNode;
 }
 
