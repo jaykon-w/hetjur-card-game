@@ -5,15 +5,21 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --card-size-width: 200px;
-  --card-size-height: 280px
+  --board-aspect-ratio: calc(16/9);
+  --card-aspect-ratio: calc(5/7);
+  --card-size-height: 30vh;
+  --card-size-width: calc(var(--card-size-height) * var(--card-aspect-ratio));
+  --font-size: calc(var(--card-size-height) * 0.028);
+  --card-scale: .8;
+  --center-x: 50%;
+  --center-y: 50%;
+
 }
 
 * {

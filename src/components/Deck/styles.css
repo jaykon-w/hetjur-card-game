@@ -4,13 +4,13 @@
         justify-content: center;
         align-items: center;
         background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 24px;
-        width: calc(var(--card-size-width) + 24px*2);
-        height: calc(var(--card-size-height) + 24px*2);
+        border-radius: 1.5vh;
+        width: calc(var(--card-size-width) + 1.5vh*2);
+        height: calc(var(--card-size-height) + 1.5vh*2);
 
         &>.tools {
             position: absolute;
-            transform: translate(180px, 0px);
+            transform: translate(calc(var(--card-size-width) * 0.8), 0px);
             font-size: 20px;
             background: #5a3164;
             border-radius: 50%;
@@ -19,7 +19,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: #5a3164d6 2px 4px 10px;
+            box-shadow: #000000 2px 4px 10px;
             cursor: pointer;
         }
     }
@@ -30,5 +30,6 @@
         margin-top: 8px;
         font-weight: 800;
         letter-spacing: 2px;
+        text-shadow: #000000 0 1px 2px;
     }
 }

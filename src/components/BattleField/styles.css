@@ -1,6 +1,6 @@
 .battlefield {
     display: flex; 
-    gap: 25px 10px; 
+    gap: 1.8vh 1vh; 
     flex-wrap: wrap;
     justify-content: center;
 

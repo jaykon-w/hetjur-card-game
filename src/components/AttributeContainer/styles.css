@@ -1,21 +1,21 @@
 .attribute-container {
-    padding-bottom: 2px;
-    border-radius: 8px;
+    padding-bottom: 0.2vh;
+    border-radius: 0.6vh;
     margin: -2px;
 
     &.color-green {
         background: rgba(0, 64, 73, 0.75);
-        border: solid 1.3px #2c8998;
+        border: solid 0.1vh #2c8998;
     }
     
     &.color-purple {
         background: rgba(73, 59, 114, 0.75);
-        border: solid 1.3px #b594ff;
+        border: solid 0.1vh #b594ff;
     }
     
     &.color-blue {
         background: rgb(21, 65, 99, 0.75);
-        border: solid 1.3px #56a2e8;
+        border: solid 0.1vh #56a2e8;
     }
 
 }

@@ -33,7 +33,7 @@ export interface CardAspects {
   back?: boolean;
   tools?: ReactNode;
   count?: number;
-  zoomed?: boolean;
+  disableZoom?: boolean;
 }
 
 export const Card: React.FC<CardProps & CardAspects> = ({
@@ -48,12 +48,12 @@ export const Card: React.FC<CardProps & CardAspects> = ({
   back,
   tools,
   count,
-  zoomed,
+  disableZoom = false,
 }) => {
   const activeZoom = useDeck((state) => state.activeZoom);
   const setActiveZoom = useDeck((state) => state.setActiveZoom);
 
-  const isZoomAtive = zoomed || activeZoom === id;
+  const isZoomAtive = !disableZoom && activeZoom === id;
 
   const clickHadler = useCallback(() => {
     if (isZoomAtive) return setActiveZoom(null);
@@ -61,70 +61,81 @@ export const Card: React.FC<CardProps & CardAspects> = ({
   }, [isZoomAtive, setActiveZoom]);
 
   return (
-    <div className={`card-wrapper ${isZoomAtive && !back ? "zoom" : ""}`}>
-      {isZoomAtive ? <div className="tools">{tools}</div> : null}
-      <div className={`card ${type}`} onClick={clickHadler}>
-        {back ? (
-          <section className="back-card">{count}</section>
-        ) : (
-          <>
-            <section className="image">
-              <img src={image} />
-            </section>
-            <aside className="attributes">
-              <AttributeContainer color="green">
-                <Statistic text="ATK" progression={statistics.atk}></Statistic>
-              </AttributeContainer>
-              <AttributeContainer color="green">
-                <Statistic text="DEF" progression={statistics.def}></Statistic>
-              </AttributeContainer>
-              {type === "hero" ? (
-                <AttributeContainer color="blue">
-                  <Statistic text="AP" progression={statistics.spd}></Statistic>
-                </AttributeContainer>
-              ) : (
+    <div className="card-placeholder">
+      <div className={`card-wrapper ${isZoomAtive && !back ? "zoom" : ""}`}>
+        {isZoomAtive ? <div className="tools">{tools}</div> : null}
+        <div className={`card ${type}`} onClick={clickHadler}>
+          {back ? (
+            <section className="back-card">{count}</section>
+          ) : (
+            <>
+              <section className="image">
+                <img src={image} />
+              </section>
+              <aside className="attributes">
                 <AttributeContainer color="green">
                   <Statistic
-                    text="SPD"
-                    progression={statistics.spd}
+                    text="ATK"
+                    progression={statistics.atk}
                   ></Statistic>
                 </AttributeContainer>
-              )}
-            </aside>
-            <aside className="health">
-              <AttributeContainer color="purple">
-                <Statistic text="HP" progression={statistics.hp}></Statistic>
-              </AttributeContainer>
-            </aside>
-            <aside className="name">{name}</aside>
-            <section className="description">
-              <section className="effects">
-                {effects.map((e, i) => (
-                  <CardEffectDescription
-                    title={e.title}
-                    description={e.description}
-                    key={`card-effect-${e.title}-${i}`}
-                    cardName={name}
-                  />
-                ))}
+                <AttributeContainer color="green">
+                  <Statistic
+                    text="DEF"
+                    progression={statistics.def}
+                  ></Statistic>
+                </AttributeContainer>
+                {type === "hero" ? (
+                  <AttributeContainer color="blue">
+                    <Statistic
+                      text="AP"
+                      progression={statistics.spd}
+                    ></Statistic>
+                  </AttributeContainer>
+                ) : (
+                  <AttributeContainer color="green">
+                    <Statistic
+                      text="SPD"
+                      progression={statistics.spd}
+                    ></Statistic>
+                  </AttributeContainer>
+                )}
+              </aside>
+              <aside className="health">
+                <AttributeContainer color="purple">
+                  <Statistic text="HP" progression={statistics.hp}></Statistic>
+                </AttributeContainer>
+              </aside>
+              <aside className="name">{name}</aside>
+              <section className="description">
+                <section className="effects">
+                  {effects.map((e, i) => (
+                    <CardEffectDescription
+                      title={e.title}
+                      description={e.description}
+                      key={`card-effect-${e.title}-${i}`}
+                      cardName={name}
+                    />
+                  ))}
+                </section>
+                <div className="quote">{citation}</div>
               </section>
-              <div className="quote">{citation}</div>
-            </section>
-            <footer className="rewards">
-              <Statistic
-                icon={<FaCoins size="9" />}
-                direction="row"
-                progression={rewards.gold}
-              ></Statistic>
-              <Statistic
-                icon={<FaAnglesUp size="9" />}
-                direction="row"
-                align="end"
-                progression={rewards.xp}
-              ></Statistic>
-            </footer>
-          </>
-        )}
+              <footer className="rewards">
+                <Statistic
+                  icon={<FaCoins size="9" />}
+                  direction="row"
+                  progression={rewards.gold}
+                ></Statistic>
+                <Statistic
+                  icon={<FaAnglesUp size="9" />}
+                  direction="row"
+                  align="end"
+                  progression={rewards.xp}
+                ></Statistic>
+              </footer>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -7,20 +7,17 @@ import { Card } from "./components/Card";
 
 function App() {
   return (
-    <div className="table">
-      <div className="table-battlefield">
-        <BattleField></BattleField>
-      </div>
-      <div className="table-deck">
-        <Cemetery></Cemetery>
-        <Deck></Deck>
-        <div
-          style={{
-            width: "248px",
-            transform: "translate(-30px, -348px)",
-          }}
-        >
-          <Card {...hero} zoomed />
+    <div className="table-wrapper">
+      <div className="table">
+        <div className="table-battlefield">
+          <BattleField></BattleField>
+        </div>
+        <div className="table-deck">
+          <Cemetery></Cemetery>
+          <Deck></Deck>
+          <div className="table-hero-card">
+            <Card {...hero} disableZoom />
+          </div>
         </div>
       </div>
     </div>

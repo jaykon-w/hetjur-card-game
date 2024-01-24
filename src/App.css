@@ -3,24 +3,54 @@
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  min-width: calc(100vh * var(--board-aspect-ratio));
 }
-.table {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 
-  &>.table-deck {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 0 100px;
-  }
+.table-wrapper {
+  background-image: url('board.jpg');
+  background-size: calc(100vh * var(--board-aspect-ratio)) 100vh;
+  background-repeat: no-repeat;
+  background-position: 50%;
+
+  height: 100vh;
+  width: calc(100vh * var(--board-aspect-ratio));
+
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+
+  &>.table {
+    padding: 0 7vh;
+    
+    scale: var(--card-scale);
+
+    height: 100vh;
+    width: calc(100vh * var(--board-aspect-ratio));
   
-  &>.table-battlefield {
-    padding:0 100px;
-    margin-top: 32px;
-    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    &>.table-deck {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+  
+      &>.table-hero-card {
+        /* transform: translate(60px, -380px); */
+        transform: translate(0px, -4vh);
+        width: calc(var(--card-size-width) + 1.5vh*2);
+        scale: 2;
+      }
+    }
+    
+    &>.table-battlefield {
+  
+      /* padding:0 100px;
+      margin-top: 32px;
+      max-height: 200px;
+      transform: translate(0px, 160px); */
+    }
+  
   }
 }
